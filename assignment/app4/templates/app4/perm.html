@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>String Permutations</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 flex items-center justify-center h-screen">
+    <div class="bg-white bg-opacity-80 p-10 rounded-2xl shadow-xl w-full max-w-md">
+        <h1 class="text-3xl font-extrabold text-gray-900 mb-6 text-center">String Permutations</h1>
+        <form method="post" class="space-y-6">
+            {% csrf_token %}
+            <div>
+                <label for="input_string" class="block text-lg font-medium text-gray-700">Enter a string:</label>
+                <input type="text" id="input_string" name="input_string" required class="mt-1 p-2 w-full border border-gray-300 rounded-lg">
+            </div>
+            <button type="submit" class="w-full bg-green-500 text-white py-3 rounded-xl hover:bg-green-600 transition duration-300">Get Permutations</button>
+        </form>
+        {% if permutations %}
+            <div class="mt-8">
+                <h2 class="text-2xl font-bold text-gray-900">All possibilities of the string "{{ input_string }}":</h2>
+                <ul class="mt-4 list-disc list-inside space-y-2">
+                    {% for permutation in permutations %}
+                        <li class="text-lg text-gray-800">{{ permutation }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

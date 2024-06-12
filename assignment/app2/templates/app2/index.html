@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 flex items-center justify-center h-screen">
+    <div class="bg-white bg-opacity-80 p-10 rounded-2xl shadow-xl w-full max-w-md">
+        <h1 class="text-3xl font-extrabold text-gray-900 mb-6 text-center">Factorial Program</h1>
+        <form method="POST" class="space-y-6">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="w-full bg-green-500 text-white py-3 rounded-xl hover:bg-green-600 transition duration-300">Find Factorial</button>
+        </form>
+        {% if param1 %}
+        <div class="mt-8 text-center">
+            <h2 class="text-2xl font-bold text-gray-900">Factorial of {{ num }} is <span class="text-blue-600">{{ param1 }}</span></h2>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
